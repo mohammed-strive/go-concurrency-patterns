@@ -16,6 +16,11 @@ func Open() *APIConnection {
 	}
 }
 
+type ApiConnectionInterface interface {
+	ReadFile(context.Context) error
+	ResolveAddress(context.Context) error
+}
+
 type APIConnection struct {
 	rateLimiter *rate.Limiter
 }
